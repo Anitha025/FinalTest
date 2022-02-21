@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BShopTest.Dresses>
+
+@{
+    ViewBag.Title = "GetDress";
+}
+
+<h2>GetDress</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Did)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dtype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dfabric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dprice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Did)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dtype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dfabric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dprice)
+        </td>
+        <td>
+            @Html.ActionLink("Add", "DatabaseConnection", new {id=item.Did }) 
+            @Html.ActionLink("Update", "UpdateDress", new {id=item.Did}) 
+            @Html.ActionLink("Delete", "DeleteDress", new {id=item.Did})
+        </td>
+    </tr>
+}
+
+</table>
